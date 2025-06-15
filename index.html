@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Ingénieur DevOps/MLOps</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 2rem 0;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: brightness(1); }
+            to { filter: brightness(1.2); }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #b0b0b0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 1rem 0;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: inline-flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        nav a:hover {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+            margin: 2rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #4ecdc4;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* Tech Stack */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .tech-category {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tech-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
+        }
+
+        .tech-category h3 {
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .tech-list {
+            list-style: none;
+        }
+
+        .tech-list li {
+            padding: 0.3rem 0;
+            color: #b0b0b0;
+            transition: color 0.3s ease;
+        }
+
+        .tech-list li:hover {
+            color: #4ecdc4;
+            transform: translateX(5px);
+        }
+
+        /* Experience */
+        .experience-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #ff6b6b, #4ecdc4, #45b7d1);
+        }
+
+        .experience-item {
+            background: rgba(255, 255, 255, 0.05);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #4ecdc4;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(10px);
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 2rem;
+            width: 12px;
+            height: 12px;
+            background: #4ecdc4;
+            border-radius: 50%;
+            border: 3px solid #0f0f23;
+        }
+
+        .job-title {
+            color: #ff6b6b;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .company {
+            color: #4ecdc4;
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+        }
+
+        .period {
+            color: #b0b0b0;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-title {
+            color: #ff6b6b;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact */
+        .contact-info {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-info h3 {
+            color: #4ecdc4;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(78, 205, 196, 0.4);
+        }
+
+        /* Project links styling */
+        .project-card a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="hero">
+                <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem; background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: glow 2s ease-in-out infinite alternate;">Marco LOPES</h1>
+                <h2 class="section-title" style="margin-top: 0; margin-bottom: 1rem;">Ingénieur DevOps/MLOps</h2>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#tech">Technologies</a></li>
+                <li><a href="#experience">Expérience</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="about" class="fade-in">
+        <div class="container">
+            <h2 class="section-title">À propos de moi</h2>
+            <div style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: #b0b0b0;">
+                <p>Expert dans l'automatisation, l'industrialisation et la supervision de plateformes à grande échelle. Spécialisé dans la conception de pipelines MLOps. Ma trajectoire technique complète me permet d'avoir une vision unique de l'infrastructure, du système à l'IA en production.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="tech" class="fade-in">
+        <div class="container">
+            <h2 class="section-title">Stack Technique</h2>
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h3>MLOps</h3>
+                    <ul class="tech-list">
+                        <li>FastAPI</li>
+                        <li>MLflow</li>
+                        <li>Airflow</li>
+                        <li>DVC</li>
+                        <li>BentoML</li>
+                        <li>ZenML</li>
+                        <li>Drift Monitoring</li>
+                        <li>Dagshub</li>
+                        <li>Weights & Biases</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Cloud</h3>
+                    <ul class="tech-list">
+                        <li>OpenStack</li>
+                        <li>OVHCloud</li>
+                        <li>AWS</li>
+                        <li>VMware vSphere</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Conteneurs</h3>
+                    <ul class="tech-list">
+                        <li>Docker</li>
+                        <li>Kubernetes</li>
+                        <li>Helm</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>CI/CD</h3>
+                    <ul class="tech-list">
+                        <li>Jenkins</li>
+                        <li>GitLab CI</li>
+                        <li>GitHub Actions</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Automatisation</h3>
+                    <ul class="tech-list">
+                        <li>Terraform</li>
+                        <li>Ansible</li>
+                        <li>Shell Scripting</li>
+                        <li>Python</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Monitoring</h3>
+                    <ul class="tech-list">
+                        <li>Prometheus</li>
+                        <li>Grafana</li>
+                        <li>Loki</li>
+                        <li>ELK Stack</li>
+                        <li>Evidently AI</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Bases de données</h3>
+                    <ul class="tech-list">
+                        <li>Elasticsearch</li>
+                        <li>MongoDB</li>
+                        <li>PostgreSQL</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Systèmes</h3>
+                    <ul class="tech-list">
+                        <li>Debian</li>
+                        <li>CentOS</li>
+                        <li>Ubuntu</li>
+                        <li>RedHat</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="fade-in">
+        <div class="container">
+            <h2 class="section-title">Expérience Professionnelle</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="job-title">Diplômé MLOps - Reconversion professionnelle</div>
+                    <div class="company">DataScientest</div>
+                    <div class="period">2025 - Formation certifiante complétée</div>
+                    <p><strong>Reconversion réussie :</strong> Transition vers le MLOps après 18 ans d'expérience technique (10 ans système + 8 ans DevOps)<br><br>
+                    <strong>Formation intensive complétée :</strong> Maîtrise du cycle de vie complet des modèles ML - développement, déploiement, orchestration, monitoring et mise à l'échelle<br><br>
+                    <strong>Stack MLOps maîtrisée :</strong> MLflow, Airflow, BentoML, ZenML, Drift Monitoring, Dagshub, Weights & Biases<br><br>
+                    <strong>Projet de certification :</strong> MLOps Road Accidents - Pipeline production-ready pour la prédiction d'accidents routiers avec monitoring en temps réel</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-title">Ingénieur DevOps</div>
+                    <div class="company">Ministère de l'Intérieur (DTNUM) - Paris</div>
+                    <div class="period">2024</div>
+                    <p>Responsable de l'architecture et du déploiement d'infrastructures DevOps pour les services numériques du ministère.</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-title">Ingénieur DevOps</div>
+                    <div class="company">Ministère des Finances (DGFIP) - Noisy-le-Grand</div>
+                    <div class="period">2021 - 2023</div>
+                    <p>• Automatisation d'un processus de traitement de tickets Bugzilla<br>
+                    • Mise en place d'outils de supervision et d'extraction de données<br>
+                    • Optimisation des workflows opérationnels</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-title">Ingénieur DevOps</div>
+                    <div class="company">Linagora - Puteaux</div>
+                    <div class="period">2019 - 2021</div>
+                    <p>• Développement de playbooks Ansible<br>
+                    • Mise en place d'un outil d'extraction de données en Python<br>
+                    • Déploiement d'une infrastructure de logs (ELK) et de monitoring (Grafana, Prometheus)<br>
+                    • Industrialisation de produit Open Source</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-title">Ingénieur DevOps</div>
+                    <div class="company">Ministère de l'Intérieur (DSIC) - Paris/Lognes</div>
+                    <div class="period">2016 - 2019</div>
+                    <p>• Mise en place d'un IaaS sous OpenStack<br>
+                    • Déploiement d'outils DevOps et automatisation de tâches récurrentes<br>
+                    • Mise en place d'un PoC Kubernetes avec intégration d'outils CI/CD<br>
+                    • Déploiement d'une infrastructure VMware 5.5</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-title">Ingénieur Système Linux</div>
+                    <div class="company">Ministère de l'Intérieur (DSIC) - Lognes</div>
+                    <div class="period">2012 - 2016</div>
+                    <p>• Administration de ~2500 VMs sous VMware 5.5 et ~1500 machines physiques<br>
+                    • Déploiement de plateformes Debian, RedHat/CentOS<br>
+                    • Installation et administration de piles applicatives OpenSource</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-title">Ingénieur Système Linux</div>
+                    <div class="company">Orange - Ivry sur Seine</div>
+                    <div class="period">2006 - 2012</div>
+                    <p>• Déploiement de plateformes RedHat/CentOS sous VMware 4<br>
+                    • Installation et maintenance de serveurs physiques HP<br>
+                    • Création et maintenance de scripts d'automatisation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="fade-in">
+        <div class="container">
+            <h2 class="section-title">Projets & Réalisations</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-title">🚗 MLOps Road Accidents - Projet de fin de formation</div>
+                    <p><strong>Classification multiclasse</strong> de la gravité des accidents de route (mineur, grave, fatal) avec un pipeline MLOps complet.</p>
+                    <br>
+                    <p><strong>Technologies utilisées :</strong> Python, Streamlit, MLflow, Airflow, DVC, BentoML, Scikit-Learn</p>
+                    <br>
+                    <p><strong>Défis techniques :</strong> Dataset déséquilibré, problème de classification multiclasse, déploiement production-ready avec monitoring de dérive des données</p>
+                    <br>
+                    <p><strong>Certification :</strong> Projet validé dans le cadre du diplôme MLOps DataScientest - F1-score optimisé pour gérer le déséquilibre des classes</p>
+                    <br>
+                    <div style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="https://mlops-roads-accidents.streamlit.app/" target="_blank" style="display: inline-block; background: linear-gradient(45deg, #ff6b6b, #4ecdc4); color: white; padding: 0.5rem 1rem; border-radius: 20px; text-decoration: none; font-size: 0.9rem; transition: transform 0.3s ease;">
+                            🚀 Demo Live
+                        </a>
+                        <a href="https://github.com/mclpfr/mlops-road-accidents" target="_blank" style="display: inline-block; background: linear-gradient(45deg, #333, #666); color: white; padding: 0.5rem 1rem; border-radius: 20px; text-decoration: none; font-size: 0.9rem; transition: transform 0.3s ease;">
+                            💻 Code GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title">Mise en place d'un IaaS sous OpenStack</div>
+                    <p>Conception et déploiement d'une infrastructure OpenStack complète pour le Cloud du Ministère de l'Intérieur.</p>
+                    <br>
+                    <p><strong>Objectif principal :</strong> Mise en place de la création d'images sécurisées avec Packer dans le service **glance** d'OpenStack</p>
+                    <br>
+                    <p><strong>Échelle :</strong> Gestion de ~2500 VMs et ~1500 machines physiques</p>
+                    <br>
+                    <p><strong>Technologies :</strong> OpenStack, Packer, VMware vSphere 5.5, Ansible, Terraform, Python</p>
+                    <br>
+                    <p><strong>Résultats :</strong> Infrastructure hautement disponible, automatisation des déploiements, images standardisées et sécurisées</p>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title">🚀 PoC Kubernetes DevOps</div>
+                    <p>Mise en place d'une preuve de concept Kubernetes avec stack DevOps complète pour le Ministère de l'Intérieur.</p>
+                    <br>
+                    <p><strong>Stack intégrée :</strong> Jenkins/Spinnaker (CI/CD), Prometheus/Grafana (Monitoring), EFK Stack (Logging)</p>
+                    <br>
+                    <p><strong>Innovation :</strong> Première implémentation Kubernetes dans l'environnement ministériel avec orchestration complète</p>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title">🎭 Automatisation Bugzilla avec Intelligence</div>
+                    <p>Développement d'un système d'automatisation intelligent pour le traitement de tickets Bugzilla au Ministère des Finances.</p>
+                    <br>
+                    <p><strong>Impact :</strong> Réduction de 70% du temps de traitement manuel des tickets, amélioration de la qualité du support utilisateur</p>
+                    <br>
+                    <p><strong>Technologies :</strong> Python, API Bugzilla, Jenkins, scripts d'orchestration</p>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title">📊 Infrastructure ELK Centralisée</div>
+                    <p>Déploiement et configuration d'une stack ELK (Elasticsearch, Logstash, Kibana) pour la centralisation des logs multi-environnements.</p>
+                    <br>
+                    <p><strong>Capacité :</strong> Traitement de millions de logs quotidiens, indexation intelligente, alerting automatisé</p>
+                    <br>
+                    <p><strong>Bénéfices :</strong> Visibilité temps réel, réduction du MTTR de 60%, amélioration du troubleshooting</p>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title">🌐 Supervision Multi-Cloud</div>
+                    <p>Mise en place d'une solution de supervision unifiée pour des environnements hybrides multi-cloud.</p>
+                    <br>
+                    <p><strong>Environnements :</strong> AWS, OVHCloud, OpenStack, On-premise</p>
+                    <br>
+                    <p><strong>Stack :</strong> Prometheus, Grafana, Alertmanager, Loki</p>
+                    <br>
+                    <p><strong>Fonctionnalités :</strong> Tableaux de bord unifiés, alerting intelligent, métriques personnalisées, SLA monitoring</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="fade-in">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-info">
+                <div class="contact-links">
+                    <a href="mailto:marco.lopes.pro@gmail.com" class="contact-link">📧 Email</a>
+                    <a href="https://www.linkedin.com/in/marco-lopes-084063336/" class="contact-link">💼 LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observer tous les éléments avec la classe fade-in
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animation des éléments au hover
+        document.querySelectorAll('.tech-category, .project-card, .experience-item').forEach(el => {
+            el.addEventListener('mouseenter', function() {
+                this.style.transform = this.classList.contains('experience-item') ? 'translateX(10px)' : 'translateY(-5px)';
+            });
+            
+            el.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) translateX(0)';
+            });
+        });
+
+        // Smooth scroll pour la navigation
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
