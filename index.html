@@ -3,7 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Ingénieur DevOps/MLOps</title>
+    <title>Marco LOPES - Ingénieur DevOps vers MLOps | Portfolio</title>
+    <meta name="description" content="Ingénieur DevOps senior en transition MLOps - 18 ans d'expérience infrastructure + certification MLOps 2025. Spécialisé en pipelines ML, Kubernetes, et automatisation.">
+    <meta name="keywords" content="DevOps, MLOps, Data Engineering, MLflow, Kubernetes, Monitoring, France">
+    
+    <!-- Favicon (base64) -->
+    <link rel="icon" href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAMjIyAP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA" type="image/x-icon">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mclpfr.github.io/">
+    <meta property="og:title" content="Marco LOPES - Ingénieur DevOps/MLOps">
+    <meta property="og:description" content="Depuis plusieurs années en infrastructure et DevOps, spécialisé dans les pipelines MLOps et l'automatisation.">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/0f0f23/4ecdc4?text=Marco+LOPES+%7C+Ingénieur+DevOps%2FMLOps">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mclpfr.github.io/">
+    <meta property="twitter:title" content="Marco LOPES - Ingénieur DevOps/MLOps">
+    <meta property="twitter:description" content="Depuis plusieurs années en infrastructure et DevOps, spécialisé dans les pipelines MLOps et l'automatisation.">
+    <meta property="twitter:image" content="https://via.placeholder.com/1200x630/0f0f23/4ecdc4?text=Marco+LOPES+%7C+Ingénieur+DevOps%2FMLOps">
     <style>
         * {
             margin: 0;
@@ -12,7 +31,7 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
             color: #ffffff;
             line-height: 1.6;
@@ -26,16 +45,22 @@
 
         /* Header */
         header {
-            padding: 2rem 0;
+            padding: 3rem 0;
             text-align: center;
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .hero {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-size: 3.2rem;
+            margin-bottom: 0.5rem;
             background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -43,16 +68,81 @@
             animation: glow 2s ease-in-out infinite alternate;
         }
 
+        .hero-subtitle {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            font-weight: normal;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .hero-tagline {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(40, 167, 69, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #4ecdc4;
+            border: 2px solid #4ecdc4;
+        }
+
+        .btn-primary:hover, .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(78, 205, 196, 0.4);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(78, 205, 196, 0.1);
+        }
+
         @keyframes glow {
             from { filter: brightness(1); }
             to { filter: brightness(1.2); }
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            color: #b0b0b0;
-            max-width: 600px;
-            margin: 0 auto;
         }
 
         /* Navigation */
@@ -60,6 +150,10 @@
             padding: 1rem 0;
             text-align: center;
             background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         nav ul {
@@ -107,6 +201,19 @@
             border-radius: 2px;
         }
 
+        /* About section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: #b0b0b0;
+            line-height: 1.8;
+        }
+
         /* Tech Stack */
         .tech-grid {
             display: grid;
@@ -141,7 +248,9 @@
         .tech-list li {
             padding: 0.3rem 0;
             color: #b0b0b0;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 1rem;
         }
 
         .tech-list li:hover {
@@ -248,6 +357,22 @@
             margin-bottom: 1rem;
         }
 
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tag {
+            background: rgba(78, 205, 196, 0.2);
+            color: #4ecdc4;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(78, 205, 196, 0.3);
+        }
+
         /* Contact */
         .contact-info {
             text-align: center;
@@ -255,12 +380,6 @@
             padding: 3rem;
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .contact-info h3 {
-            color: #4ecdc4;
-            font-size: 2rem;
-            margin-bottom: 2rem;
         }
 
         .contact-links {
@@ -286,16 +405,14 @@
             box-shadow: 0 10px 20px rgba(78, 205, 196, 0.4);
         }
 
-        /* Project links styling */
-        .project-card a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.4rem;
             }
             
             nav ul {
@@ -308,6 +425,11 @@
             }
             
             .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-buttons {
                 flex-direction: column;
                 align-items: center;
             }
@@ -332,8 +454,16 @@
     <header>
         <div class="container">
             <div class="hero">
-                <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem; background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: glow 2s ease-in-out infinite alternate;">Marco LOPES</h1>
-                <h2 class="section-title" style="margin-top: 0; margin-bottom: 1rem;">Ingénieur DevOps/MLOps</h2>
+
+                <h1>Marco LOPES</h1>
+                <h2 class="hero-subtitle">Ingénieur DevOps/MLOps</h2>
+
+
+
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn-primary">Voir mes projets</a>
+                    <a href="#contact" class="btn-secondary">Me contacter</a>
+                </div>
             </div>
         </div>
     </header>
@@ -345,6 +475,7 @@
                 <li><a href="#tech">Technologies</a></li>
                 <li><a href="#experience">Expérience</a></li>
                 <li><a href="#projects">Projets</a></li>
+                <li><a href="#realisations">Réalisations</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -352,9 +483,14 @@
 
     <section id="about" class="fade-in">
         <div class="container">
-            <h2 class="section-title">À propos de moi</h2>
-            <div style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: #b0b0b0;">
-                <p>Expert dans l'automatisation, l'industrialisation et la supervision de plateformes à grande échelle. Spécialisé dans la conception de pipelines MLOps. Ma trajectoire technique complète me permet d'avoir une vision unique de l'infrastructure, du système à l'IA en production.</p>
+            <h2 class="section-title">À propos</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>DevOps depuis plusieurs années, aujourd'hui MLOps.</p>
+                    <p>J'ai évolué naturellement vers l'industrialisation de modèles de machine learning, en m'appuyant sur mon expertise en automatisation, déploiement et monitoring.</p>
+                    
+                    <p>Formé au cycle complet du ML (<a href="https://datascientest.com/" target="_blank" style="color: #4ecdc4; text-decoration: none; font-weight: bold;">DataScientest</a> 2025), je conçois des solutions robustes : versioning des données, orchestration des pipelines d'entraînement, suivi des performances et détection de dérive.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -366,23 +502,22 @@
                 <div class="tech-category">
                     <h3>MLOps</h3>
                     <ul class="tech-list">
-                        <li>FastAPI</li>
                         <li>MLflow</li>
                         <li>Airflow</li>
                         <li>DVC</li>
                         <li>BentoML</li>
                         <li>ZenML</li>
-                        <li>Drift Monitoring</li>
+                        <li>Evidently AI</li>
+                        <li>W&B</li>
                         <li>Dagshub</li>
-                        <li>Weights & Biases</li>
                     </ul>
                 </div>
                 <div class="tech-category">
                     <h3>Cloud</h3>
                     <ul class="tech-list">
+                        <li>AWS</li>
                         <li>OpenStack</li>
                         <li>OVHCloud</li>
-                        <li>AWS</li>
                         <li>VMware vSphere</li>
                     </ul>
                 </div>
@@ -407,8 +542,23 @@
                     <ul class="tech-list">
                         <li>Terraform</li>
                         <li>Ansible</li>
-                        <li>Shell Scripting</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Développement</h3>
+                    <ul class="tech-list">
                         <li>Python</li>
+                        <li>Bash</li>
+                        <li>YAML</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Outils IA</h3>
+                    <ul class="tech-list">
+
+                        <li>ChatGPT</li>
+                        <li>Claude</li>
+                        <li>Windsurf</li>
                     </ul>
                 </div>
                 <div class="tech-category">
@@ -417,25 +567,15 @@
                         <li>Prometheus</li>
                         <li>Grafana</li>
                         <li>Loki</li>
-                        <li>ELK Stack</li>
-                        <li>Evidently AI</li>
+                        <li>ELK</li>
                     </ul>
                 </div>
                 <div class="tech-category">
                     <h3>Bases de données</h3>
                     <ul class="tech-list">
-                        <li>Elasticsearch</li>
-                        <li>MongoDB</li>
                         <li>PostgreSQL</li>
-                    </ul>
-                </div>
-                <div class="tech-category">
-                    <h3>Systèmes</h3>
-                    <ul class="tech-list">
-                        <li>Debian</li>
-                        <li>CentOS</li>
-                        <li>Ubuntu</li>
-                        <li>RedHat</li>
+                        <li>MongoDB</li>
+                        <li>Elasticsearch</li>
                     </ul>
                 </div>
             </div>
@@ -444,70 +584,122 @@
 
     <section id="experience" class="fade-in">
         <div class="container">
-            <h2 class="section-title">Expérience Professionnelle</h2>
+            <h2 class="section-title">Parcours Professionnel</h2>
             <div class="experience-timeline">
                 <div class="experience-item">
-                    <div class="job-title">Diplômé MLOps - Reconversion professionnelle</div>
+                    <div class="job-title">Formation MLOps</div>
                     <div class="company">DataScientest</div>
-                    <div class="period">2025 - Formation certifiante complétée</div>
-                    <p><strong>Reconversion réussie :</strong> Transition vers le MLOps après 18 ans d'expérience technique (10 ans système + 8 ans DevOps)<br><br>
-                    <strong>Formation intensive complétée :</strong> Maîtrise du cycle de vie complet des modèles ML - développement, déploiement, orchestration, monitoring et mise à l'échelle<br><br>
-                    <strong>Stack MLOps maîtrisée :</strong> MLflow, Airflow, BentoML, ZenML, Drift Monitoring, Dagshub, Weights & Biases<br><br>
-                    <strong>Projet de certification :</strong> MLOps Road Accidents - Pipeline production-ready pour la prédiction d'accidents routiers avec monitoring en temps réel</p>
+                    <div class="period">2025 - Certification obtenue</div>
+                    <p><strong>Maîtrise du cycle de vie complet ML :</strong> Développement, déploiement, orchestration, monitoring et mise à l'échelle des modèles<br><br>
+                    <strong>Projet certifiant :</strong> Pipeline MLOps production-ready pour prédiction d'accidents routiers avec monitoring temps réel</p>
+                    <div class="project-tags">
+                        <span class="tag">Airflow</span>
+                        <span class="tag">MLflow</span>
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">BentoML</span>
+                        <span class="tag">ZenML</span>
+                        <span class="tag">W&B</span>
+                        <span class="tag">Evidently</span>
+                        <span class="tag">Grafana</span>
+                        <span class="tag">Prometheus</span>
+                        <span class="tag">Loki</span>
+                    </div>
                 </div>
 
                 <div class="experience-item">
                     <div class="job-title">Ingénieur DevOps</div>
                     <div class="company">Ministère de l'Intérieur (DTNUM) - Paris</div>
                     <div class="period">2024</div>
-                    <p>Responsable de l'architecture et du déploiement d'infrastructures DevOps pour les services numériques du ministère.</p>
-                </div>
-
-                <div class="experience-item">
-                    <div class="job-title">Ingénieur DevOps</div>
-                    <div class="company">Ministère des Finances (DGFIP) - Noisy-le-Grand</div>
-                    <div class="period">2021 - 2023</div>
-                    <p>• Automatisation d'un processus de traitement de tickets Bugzilla<br>
-                    • Mise en place d'outils de supervision et d'extraction de données<br>
-                    • Optimisation des workflows opérationnels</p>
-                </div>
-
-                <div class="experience-item">
-                    <div class="job-title">Ingénieur DevOps</div>
-                    <div class="company">Linagora - Puteaux</div>
-                    <div class="period">2019 - 2021</div>
                     <p>• Développement de playbooks Ansible<br>
                     • Mise en place d'un outil d'extraction de données en Python<br>
-                    • Déploiement d'une infrastructure de logs (ELK) et de monitoring (Grafana, Prometheus)<br>
-                    • Industrialisation de produit Open Source</p>
+                    • Déploiement d'une infrastructure de logs et de monitoring </p>
+                    <div class="project-tags">
+                        <span class="tag">Ansible</span>
+                        <span class="tag">Terraform</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">ELK</span>
+                        <span class="tag">Grafana</span>
+                        <span class="tag">Prometheus</span>
+                    </div>
                 </div>
 
                 <div class="experience-item">
                     <div class="job-title">Ingénieur DevOps</div>
-                    <div class="company">Ministère de l'Intérieur (DSIC) - Paris/Lognes</div>
+                    <div class="company">Ministère des Finances (DGFIP)</div>
+                    <div class="period">2021 - 2023</div>
+                    <p>• <strong>Automatisation tickets Bugzilla :</strong> Réduction 70% temps traitement<br>
+                    • Supervision et extraction de données<br>
+                    • Optimisation workflows opérationnels</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Grafana</span>
+                        <span class="tag">Prometheus</span>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-title">Ingénieur DevOps</div>
+                    <div class="company">Linagora</div>
+                    <div class="period">2019 - 2021</div>
+                    <p>• Mise en place d'une infrastructure ELK<br>
+                    • Stack Prometheus/Grafana<br>
+                    • Playbooks Ansible<br>
+                    • Industrialisation Open Source</p>
+                    <div class="project-tags">
+                        <span class="tag">ELK</span>
+                        <span class="tag">Grafana</span>
+                        <span class="tag">Prometheus</span>
+                        <span class="tag">Ansible</span>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-title">Ingénieur DevOps</div>
+                    <div class="company">Ministère de l'Intérieur (DSIC)</div>
                     <div class="period">2016 - 2019</div>
-                    <p>• Mise en place d'un IaaS sous OpenStack<br>
-                    • Déploiement d'outils DevOps et automatisation de tâches récurrentes<br>
-                    • Mise en place d'un PoC Kubernetes avec intégration d'outils CI/CD<br>
-                    • Déploiement d'une infrastructure VMware 5.5</p>
+                    <p>• <strong>Première implémentation Kubernetes ministérielle</strong><br>
+                    • IaaS OpenStack production<br>
+                    • PoC Kubernetes + CI/CD complet<br>
+                    • Infrastructure VMware 5.5</p>
+                    <div class="project-tags">
+                        <span class="tag">Kubernetes</span>
+                        <span class="tag">OpenStack</span>
+                        <span class="tag">YAML</span>
+                        <span class="tag">Ansible</span>
+                        <span class="tag">Gitlab CI/CD</span>
+                        <span class="tag">VMware</span>
+                        
+                    </div>
                 </div>
 
                 <div class="experience-item">
                     <div class="job-title">Ingénieur Système Linux</div>
-                    <div class="company">Ministère de l'Intérieur (DSIC) - Lognes</div>
+                    <div class="company">Ministère de l'Intérieur (DSIC)</div>
                     <div class="period">2012 - 2016</div>
-                    <p>• Administration de ~2500 VMs sous VMware 5.5 et ~1500 machines physiques<br>
-                    • Déploiement de plateformes Debian, RedHat/CentOS<br>
-                    • Installation et administration de piles applicatives OpenSource</p>
+                    <p>• Administration 2500+ VMs et 1500+ serveurs physiques<br>
+                    • Plateformes Debian/RedHat/CentOS<br>
+                    • Piles applicatives OpenSource</p>
+                    <div class="project-tags">
+                        <span class="tag">Debian</span>
+                        <span class="tag">RedHat</span>
+                        <span class="tag">Bash</span>
+                        <span class="tag">VMware</span>
+                    </div>
                 </div>
 
                 <div class="experience-item">
                     <div class="job-title">Ingénieur Système Linux</div>
-                    <div class="company">Orange - Ivry sur Seine</div>
+                    <div class="company">Orange</div>
                     <div class="period">2006 - 2012</div>
-                    <p>• Déploiement de plateformes RedHat/CentOS sous VMware 4<br>
-                    • Installation et maintenance de serveurs physiques HP<br>
-                    • Création et maintenance de scripts d'automatisation</p>
+                    <p>• Plateformes RedHat/CentOS sous VMware<br>
+                    • Maintenance serveurs HP<br>
+                    • Scripts d'automatisation</p>
+                    <div class="project-tags">
+                        <span class="tag">RedHat</span>
+                        <span class="tag">CentOS</span>
+                        <span class="tag">Bash</span>
+                        <span class="tag">VMware</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -515,77 +707,115 @@
 
     <section id="projects" class="fade-in">
         <div class="container">
-            <h2 class="section-title">Projets & Réalisations</h2>
+            <h2 class="section-title">Projets</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-title">🚗 MLOps Road Accidents - Projet de fin de formation</div>
-                    <p><strong>Classification multiclasse</strong> de la gravité des accidents de route (mineur, grave, fatal) avec un pipeline MLOps complet.</p>
-                    <br>
-                    <p><strong>Technologies utilisées :</strong> Python, Streamlit, MLflow, Airflow, DVC, BentoML, Scikit-Learn</p>
-                    <br>
-                    <p><strong>Défis techniques :</strong> Dataset déséquilibré, problème de classification multiclasse, déploiement production-ready avec monitoring de dérive des données</p>
-                    <br>
-                    <p><strong>Certification :</strong> Projet validé dans le cadre du diplôme MLOps DataScientest - F1-score optimisé pour gérer le déséquilibre des classes</p>
-                    <br>
+                    <div class="project-title">MLOps Road Accidents - Projet Certifiant</div>
+                    <p><strong>Pipeline MLOps complet</strong> pour classification multiclasse de la gravité des accidents (grave, non grave)</p>
+                    
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Streamlit</span>
+                        <span class="tag">MLflow</span>
+                        <span class="tag">Airflow</span>
+                        <span class="tag">Evidently</span>
+                        <span class="tag">Grafana</span>
+                        <span class="tag">Prometheus</span>
+                        <span class="tag">Loki</span>
+                    </div>
+                    
+                    <p><strong>Défis techniques :</strong> Dataset déséquilibré, déploiement production avec monitoring dérive</p>
+                    <p><strong>Résultats :</strong> F1-score optimisé, pipeline automatisé, monitoring temps réel</p>
+                    
                     <div style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
                         <a href="https://mlops-roads-accidents.streamlit.app/" target="_blank" style="display: inline-block; background: linear-gradient(45deg, #ff6b6b, #4ecdc4); color: white; padding: 0.5rem 1rem; border-radius: 20px; text-decoration: none; font-size: 0.9rem; transition: transform 0.3s ease;">
-                            🚀 Demo Live
+                            Demo Live
                         </a>
                         <a href="https://github.com/mclpfr/mlops-road-accidents" target="_blank" style="display: inline-block; background: linear-gradient(45deg, #333, #666); color: white; padding: 0.5rem 1rem; border-radius: 20px; text-decoration: none; font-size: 0.9rem; transition: transform 0.3s ease;">
-                            💻 Code GitHub
+                            Code GitHub
                         </a>
+                    </div>
+                </div>
+                
+                <!-- Placeholder pour futurs projets IA -->
+                <div class="project-card" style="border: 2px dashed rgba(78, 205, 196, 0.3); background: rgba(78, 205, 196, 0.05);">
+                    <div class="project-title" style="color: #4ecdc4;">Prochains Projets IA</div>
+                    <p style="color: #b0b0b0; font-style: italic;">
+                        • Application RAG avec recherche sémantique<br>
+                        • Agent IA conversationnel pour réservation hôtel<br>
+                        • Pipeline d'intégration LLM en production
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag" style="background: rgba(78, 205, 196, 0.1); border-color: rgba(78, 205, 196, 0.2);">En développement</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="realisations" class="fade-in">
+        <div class="container">
+            <h2 class="section-title">Réalisations Professionnelles</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-title">IaaS OpenStack Ministériel</div>
+                    <p>Conception et déploiement d'une infrastructure IaaS complète avec images sécurisées Packer</p>
+                    
+                    <div class="project-tags">
+                        <span class="tag">OpenStack</span>
+                        <span class="tag">Packer</span>
+                        <span class="tag">Debian</span>
+                        <span class="tag">RedHat</span>
+                    </div>
+                    
+                    <p><strong>Impact :</strong> Infrastructure hautement disponible, automatisation des déploiements, sécurisation standardisée</p>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title">Premier Kubernetes Ministériel</div>
+                    <p>PoC Kubernetes avec stack DevOps complète - première implémentation dans l'environnement</p>
+                    
+                    <div class="project-tags">
+                        <span class="tag">Kubernetes</span>
+                        <span class="tag">Jenkins</span>
+                        <span class="tag">Prometheus</span>
+                        <span class="tag">EFK</span>
+                    </div>
+                    
+                    <p><strong>Innovation :</strong> Orchestration complète CI/CD + monitoring + logging</p>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title">Automatisation des tickets Bugzilla</div>
+                    <p>Système d'automatisation pour le traitement des tickets de support</p>
+                    
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">API Bugzilla</span>
+                        <span class="tag">Jenkins</span>
+                    </div>
+                    
+                    <p><strong>Impact :</strong> Réduction 70% temps de traitement, amélioration qualité support</p>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title">Infrastructure ELK Centralisée</div>
+                    <p>Stack ELK pour centralisation multi-environnements avec indexation intelligente</p>
+                    
+                    <div class="project-tags">
+                        <span class="tag">ELK</span>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-title">Mise en place d'un IaaS sous OpenStack</div>
-                    <p>Conception et déploiement d'une infrastructure OpenStack complète pour le Cloud du Ministère de l'Intérieur.</p>
-                    <br>
-                    <p><strong>Objectif principal :</strong> Mise en place de la création d'images sécurisées avec Packer dans le service **glance** d'OpenStack</p>
-                    <br>
-                    <p><strong>Échelle :</strong> Gestion de ~2500 VMs et ~1500 machines physiques</p>
-                    <br>
-                    <p><strong>Technologies :</strong> OpenStack, Packer, VMware vSphere 5.5, Ansible, Terraform, Python</p>
-                    <br>
-                    <p><strong>Résultats :</strong> Infrastructure hautement disponible, automatisation des déploiements, images standardisées et sécurisées</p>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-title">🚀 PoC Kubernetes DevOps</div>
-                    <p>Mise en place d'une preuve de concept Kubernetes avec stack DevOps complète pour le Ministère de l'Intérieur.</p>
-                    <br>
-                    <p><strong>Stack intégrée :</strong> Jenkins/Spinnaker (CI/CD), Prometheus/Grafana (Monitoring), EFK Stack (Logging)</p>
-                    <br>
-                    <p><strong>Innovation :</strong> Première implémentation Kubernetes dans l'environnement ministériel avec orchestration complète</p>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-title">🎭 Automatisation Bugzilla avec Intelligence</div>
-                    <p>Développement d'un système d'automatisation intelligent pour le traitement de tickets Bugzilla au Ministère des Finances.</p>
-                    <br>
-                    <p><strong>Impact :</strong> Réduction de 70% du temps de traitement manuel des tickets, amélioration de la qualité du support utilisateur</p>
-                    <br>
-                    <p><strong>Technologies :</strong> Python, API Bugzilla, Jenkins, scripts d'orchestration</p>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-title">📊 Infrastructure ELK Centralisée</div>
-                    <p>Déploiement et configuration d'une stack ELK (Elasticsearch, Logstash, Kibana) pour la centralisation des logs multi-environnements.</p>
-                    <br>
-                    <p><strong>Capacité :</strong> Traitement de millions de logs quotidiens, indexation intelligente, alerting automatisé</p>
-                    <br>
-                    <p><strong>Bénéfices :</strong> Visibilité temps réel, réduction du MTTR de 60%, amélioration du troubleshooting</p>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-title">🌐 Supervision Multi-Cloud</div>
-                    <p>Mise en place d'une solution de supervision unifiée pour des environnements hybrides multi-cloud.</p>
-                    <br>
-                    <p><strong>Environnements :</strong> AWS, OVHCloud, OpenStack, On-premise</p>
-                    <br>
-                    <p><strong>Stack :</strong> Prometheus, Grafana, Alertmanager, Loki</p>
-                    <br>
-                    <p><strong>Fonctionnalités :</strong> Tableaux de bord unifiés, alerting intelligent, métriques personnalisées, SLA monitoring</p>
+                    <div class="project-title">Supervision Cloud</div>
+                    <p>Solution de supervision pour Cloud hybrides</p>
+                    
+                    <div class="project-tags">
+                        <span class="tag">Prometheus</span>
+                        <span class="tag">Grafana</span>
+                        <span class="tag">OpenStack</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -596,8 +826,8 @@
             <h2 class="section-title">Contact</h2>
             <div class="contact-info">
                 <div class="contact-links">
-                    <a href="mailto:marco.lopes.pro@gmail.com" class="contact-link">📧 Email</a>
-                    <a href="https://www.linkedin.com/in/marco-lopes-084063336/" class="contact-link">💼 LinkedIn</a>
+                    <a href="mailto:marco.lopes.ops@gmail.com" class="contact-link">Email</a>
+                    <a href="https://www.linkedin.com/in/marco-lopes-084063336/" class="contact-link">LinkedIn</a>
                 </div>
             </div>
         </div>
