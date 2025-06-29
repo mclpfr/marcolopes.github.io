@@ -86,6 +86,7 @@
         body.light-theme .btn-primary {
             background: linear-gradient(45deg, #2b6cb0, #4a90e2);
             color: white;
+            box-shadow: 0 4px 15px rgba(43, 108, 176, 0.3);
         }
 
         body.light-theme .btn-secondary {
@@ -105,6 +106,19 @@
             background: rgba(43, 108, 176, 0.1);
             color: #2b6cb0;
             border-color: rgba(43, 108, 176, 0.3);
+        }
+        
+        body.light-theme nav a {
+            color: #2b6cb0;
+            background: rgba(43, 108, 176, 0.1);
+            border: 1px solid #2b6cb0;
+        }
+
+        body.light-theme nav a:hover {
+            background: linear-gradient(45deg, #2b6cb0, #4a90e2);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 10px 20px rgba(43, 108, 176, 0.3);
         }
         * {
             margin: 0;
@@ -190,7 +204,56 @@
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin-top: 2rem;
+            margin: 2rem 0 1rem 0;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #4ecdc4;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #4ecdc4;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        body.light-theme .nav-links a {
+            color: #2b6cb0;
+        }
+        
+        body.light-theme .nav-links a:hover {
+            color: #4a90e2;
+        }
+        
+        body.light-theme .nav-links a::after {
+            background-color: #4a90e2;
         }
 
         .btn-primary, .btn-secondary {
@@ -246,44 +309,8 @@
             to { filter: brightness(1.2); }
         }
 
-        /* Navigation */
-        nav {
-            padding: 1rem 0;
-            text-align: center;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav ul {
-            list-style: none;
-            display: inline-flex;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            padding: 0.5rem 1.5rem;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            background: rgba(78, 205, 196, 0.1);
-            border: 1px solid #4ecdc4;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.1);
-        }
-
-        nav a:hover {
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(78, 205, 196, 0.3);
-            color: white;
-            border-color: transparent;
-        }
-
+        /* Navigation styles have been removed */
+        
         /* Sections */
         section {
             padding: 4rem 0;
@@ -297,7 +324,7 @@
             color: #4ecdc4;
             position: relative;
         }
-
+        
         .section-title::after {
             content: '';
             display: block;
@@ -471,6 +498,13 @@
             margin: 1rem 0;
         }
 
+        .project-buttons {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
         .tag {
             background: rgba(78, 205, 196, 0.2);
             color: #4ecdc4;
@@ -581,22 +615,17 @@
                     <a href="#projects" class="btn-primary">Voir mes projets</a>
                     <a href="#contact" class="btn-secondary">Me contacter</a>
                 </div>
+                
+                <div class="nav-links">
+                    <a href="#about">À propos</a>
+                    <a href="#tech">Technologies</a>
+                    <a href="#experience">Expérience</a>
+                    <a href="#projects">Projets</a>
+                    <a href="#realisations">Réalisations</a>
+                </div>
             </div>
         </div>
     </header>
-
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#tech">Technologies</a></li>
-                <li><a href="#experience">Expérience</a></li>
-                <li><a href="#projects">Projets</a></li>
-                <li><a href="#realisations">Réalisations</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
 
     <section id="about" class="fade-in">
         <div class="container">
@@ -757,11 +786,11 @@
                     <p><strong>Défis techniques :</strong> Dataset déséquilibré, déploiement production avec monitoring dérive</p>
                     <p><strong>Résultats :</strong> F1-score optimisé, pipeline automatisé, monitoring temps réel</p>
                     
-                    <div style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-                        <a href="https://mlops-roads-accidents.streamlit.app/" target="_blank" style="display: inline-block; background: linear-gradient(45deg, #ff6b6b, #4ecdc4); color: white; padding: 0.5rem 1rem; border-radius: 20px; text-decoration: none; font-size: 0.9rem; transition: transform 0.3s ease;">
+                    <div class="project-buttons">
+                        <a href="https://mlops-roads-accidents.streamlit.app/" target="_blank" class="btn-primary" rel="noopener noreferrer">
                             Demo Live
                         </a>
-                        <a href="https://github.com/mclpfr/mlops-road-accidents" target="_blank" style="display: inline-block; background: linear-gradient(45deg, #333, #666); color: white; padding: 0.5rem 1rem; border-radius: 20px; text-decoration: none; font-size: 0.9rem; transition: transform 0.3s ease;">
+                        <a href="https://github.com/mclpfr/mlops-road-accidents" target="_blank" class="btn-secondary" rel="noopener noreferrer">
                             Code GitHub
                         </a>
                     </div>
