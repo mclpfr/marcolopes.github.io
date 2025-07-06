@@ -83,6 +83,10 @@
             background-clip: text;
         }
 
+        body.light-theme .project-card::before {
+            background: linear-gradient(90deg, #2b6cb0 0%, #4a90e2 100%);
+        }
+
         body.light-theme .btn-primary {
             background: linear-gradient(45deg, #2b6cb0, #4a90e2);
             color: white;
@@ -482,7 +486,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            background: linear-gradient(90deg, #4ecdc4 0%, #2196f3 100%);
         }
 
         .project-card:hover {
@@ -789,8 +793,8 @@
                     <p><strong>Résultats :</strong> F1-score optimisé, pipeline automatisé, monitoring temps réel</p>
                     
                     <div class="project-buttons">
-                        <a href="https://mlops-roads-accidents.streamlit.app/" target="_blank" class="btn-primary" rel="noopener noreferrer">
-                            Demo Live
+                        <a href="https://srv877984.hstgr.cloud" target="_blank" class="btn-primary" rel="noopener noreferrer">
+                            Demo
                         </a>
                         <a href="https://github.com/mclpfr/mlops-road-accidents" target="_blank" class="btn-secondary" rel="noopener noreferrer">
                             Code GitHub
@@ -1045,8 +1049,8 @@
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
         
-        // Check for saved user preference, if any, on load of the website
-        if (localStorage.getItem('theme') === 'light') {
+        // Par défaut, active le mode clair si aucune préférence n'est trouvée
+        if (localStorage.getItem('theme') === 'light' || !localStorage.getItem('theme')) {
             body.classList.add('light-theme');
         }
 
