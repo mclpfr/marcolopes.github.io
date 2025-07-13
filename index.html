@@ -530,12 +530,105 @@
         }
 
         .tag {
-            background: rgba(78, 205, 196, 0.2);
+            background: rgba(78, 205, 196, 0.1);
             color: #4ecdc4;
             padding: 0.3rem 0.8rem;
             border-radius: 15px;
             font-size: 0.8rem;
             border: 1px solid rgba(78, 205, 196, 0.3);
+        }
+
+        /* Tooltip for credentials */
+        .btn-with-tooltip {
+            position: relative;
+        }
+        
+        .credentials-tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            transform: translateY(10px);
+            width: 280px;
+            background: rgba(30, 30, 40, 0.95);
+            color: #fff;
+            padding: 12px 15px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+            margin-bottom: 10px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .credentials-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 40px;
+            transform: translateX(0);
+            border-width: 8px;
+            border-style: solid;
+            border-color: rgba(30, 30, 40, 0.95) transparent transparent transparent;
+        }
+        
+        .btn-with-tooltip:hover .credentials-tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .tooltip-content {
+            text-align: left;
+        }
+        
+        .tooltip-title {
+            margin: 0 0 8px 0;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #4ecdc4;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 5px;
+        }
+        
+        .tooltip-content p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .tooltip-icon {
+            margin-right: 8px;
+            display: inline-block;
+        }
+        
+        /* Blurred future projects */
+        .blurred-projects {
+            color: #b0b0b0;
+            font-style: italic;
+            filter: blur(3px) !important;
+            opacity: 0.6;
+            user-select: none;
+            transition: filter 0.3s ease, opacity 0.3s ease;
+        }
+        
+        
+        body.light-theme .credentials-tooltip {
+            background: rgba(43, 108, 176, 0.95);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        body.light-theme .credentials-tooltip::after {
+            border-color: rgba(43, 108, 176, 0.95) transparent transparent transparent;
+        }
+        
+        body.light-theme .tooltip-title {
+            color: #ffffff;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         /* Contact */
@@ -651,19 +744,89 @@
         </div>
     </header>
 
-    <section id="about" class="fade-in">
-        <div class="container">
-            <h2 class="section-title">À propos</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>DevOps depuis plusieurs années, aujourd'hui MLOps.</p>
-                    <p>J'ai évolué naturellement vers l'industrialisation de modèles de machine learning, en m'appuyant sur mon expertise en automatisation, déploiement et monitoring.</p>
-                    
-                    <p>Formé au cycle complet du ML (<a href="https://datascientest.com/" target="_blank" style="color: #4ecdc4; text-decoration: none; font-weight: bold;">DataScientest</a> 2025), je conçois des solutions robustes : versioning des données, orchestration des pipelines d'entraînement, suivi des performances et détection de dérive.</p>
-                </div>
-            </div>
-        </div>
+    <!-- ===== À PROPOS ===== -->
+    <section id="about" class="about-section fade-in-on-load">
+        <h2 class="about-title">À&nbsp;propos</h2>
+
+        <p>
+            Ingénieur <strong>DevOps</strong> depuis plusieurs années, j’évolue aujourd’hui vers le
+            <strong>MLOps</strong> pour industrialiser des modèles de machine learning.
+        </p>
+        <p>
+            Je mets à profit mon expertise en <strong>automatisation</strong>, <strong>déploiement</strong> et
+            <strong>monitoring</strong> afin de livrer des solutions fiables et scalables.
+        </p>
+        <p>
+            Formé au cycle complet du ML chez
+            <a href="https://datascientest.com/" target="_blank" rel="noopener noreferrer" class="school-link"><span class="school">DataScientest&nbsp;(2025)</span></a>, je conçois des architectures robustes&nbsp;:
+            versioning des données, orchestration de pipelines, suivi des performances
+            et détection de dérive.
+        </p>
     </section>
+
+    <!-- Styles spécifiques à la section À propos -->
+    <style>
+    /* Container */
+    .about-section{
+        max-width:800px;
+        margin:0 auto 4rem;
+        padding:0 1.5rem;
+        text-align:center;
+    }
+    /* Title */
+    .about-title{
+        font-size:2rem;
+        margin-bottom:1.5rem;
+        color:var(--accent-color,#2b6cb0);
+        position:relative;
+        display:inline-block;
+    }
+    .about-title::after{
+        content:"";
+        position:absolute;
+        left:50%;
+        bottom:-6px;
+        transform:translateX(-50%);
+        width:60%;
+        height:3px;
+        background:currentColor;
+        border-radius:2px;
+    }
+    /* Paragraphs */
+    .about-section p{
+        color:#374151;
+        font-size:1.05rem;
+        line-height:1.6;
+        margin:0 0 1.2rem;
+    }
+    /* Mise en avant DataScientest */
+    .about-section .school{
+        color:#14B8A6;
+        font-weight:600;
+    }
+    /* Uniform color for emphasized text */
+    .about-section strong{
+        color:var(--accent-color,#2b6cb0);
+    }
+    /* Link styling */
+    .school-link{
+        text-decoration:none;
+    }
+    /* Fade-in */
+    .fade-in-on-load{
+        opacity:0;
+        transform:translateY(20px);
+        animation:fadeInUp 0.8s ease-out 0.3s forwards;
+    }
+    @keyframes fadeInUp{
+        to{opacity:1;transform:translateY(0);}
+    }
+    /* Responsive */
+    @media(max-width:480px){
+        .about-title{font-size:1.6rem;}
+        .about-section p{font-size:1rem;}
+    }
+    </style>
 
     <section id="experience" class="fade-in">
         <div class="container">
@@ -808,11 +971,18 @@
                     <p><strong>Résultats :</strong> F1-score optimisé, pipeline automatisé, monitoring temps réel</p>
                     
                     <div class="project-buttons">
-                        <a href="https://srv877984.hstgr.cloud" target="_blank" class="btn-primary" rel="noopener noreferrer">
+                        <a href="https://srv877984.hstgr.cloud" target="_blank" class="btn-primary btn-with-tooltip" rel="noopener noreferrer">
                             Demo
+                            <div class="credentials-tooltip">
+                                <div class="tooltip-content">
+                                    <p class="tooltip-title">Identifiants de démo :</p>
+                                    <p><span class="tooltip-icon">👤</span> admin</p>
+                                    <p><span class="tooltip-icon">🔒</span> admin123</p>
+                                </div>
+                            </div>
                         </a>
                         <a href="https://github.com/mclpfr/mlops-road-accidents" target="_blank" class="btn-secondary" rel="noopener noreferrer">
-                            Code GitHub
+                            Github
                         </a>
                     </div>
                 </div>
@@ -820,7 +990,7 @@
                 <!-- Placeholder pour futurs projets IA -->
                 <div class="project-card" style="border: 2px dashed rgba(78, 205, 196, 0.3); background: rgba(78, 205, 196, 0.05);">
                     <div class="project-title" style="color: #4ecdc4;">Prochains Projets IA</div>
-                    <p style="color: #b0b0b0; font-style: italic;">
+                    <p class="blurred-projects">
                         • Application RAG avec recherche sémantique<br>
                         • Agent IA conversationnel pour réservation hôtel<br>
                         • Pipeline d'intégration LLM en production
