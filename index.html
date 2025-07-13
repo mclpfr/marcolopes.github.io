@@ -774,12 +774,22 @@
         text-align:center;
     }
     /* Title */
+    /* Title */
     .about-title{
         font-size:2rem;
         margin-bottom:1.5rem;
-        color:var(--accent-color,#2b6cb0);
+        /* Default (dark theme) color matching section titles */
+        color:#4ecdc4;
         position:relative;
         display:inline-block;
+    }
+    /* Light theme override for title */
+    body.light-theme .about-title{
+        color:var(--accent-color,#2b6cb0);
+    }
+    /* Light theme override for the underline bar */
+    body.light-theme .about-title::after{
+        background:linear-gradient(45deg,#2b6cb0,#4a90e2);
     }
     .about-title::after{
         content:"";
@@ -787,17 +797,22 @@
         left:50%;
         bottom:-6px;
         transform:translateX(-50%);
-        width:60%;
-        height:3px;
-        background:currentColor;
+        width:100px;
+        height:4px;
+        background:linear-gradient(45deg,#ff6b6b,#4ecdc4);
         border-radius:2px;
     }
     /* Paragraphs */
     .about-section p{
-        color:#374151;
+        /* Default (dark theme) text color */
+        color:#ffffff;
         font-size:1.05rem;
         line-height:1.6;
         margin:0 0 1.2rem;
+    }
+    /* Light theme override for paragraphs */
+    body.light-theme .about-section p{
+        color:#374151;
     }
     /* Mise en avant DataScientest */
     .about-section .school{
