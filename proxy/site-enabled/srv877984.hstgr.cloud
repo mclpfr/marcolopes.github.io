@@ -64,6 +64,9 @@ server {
 
         # Supprimer les sub_filter qui causent des problèmes
         proxy_redirect off;
+
+	add_header Content-Security-Policy "frame-ancestors 'self' http://localhost:* https://srv877984.hstgr.cloud;";
+        add_header X-Frame-Options "ALLOW-FROM https://srv877984.hstgr.cloud";
         }
 
     location /auth/ {
