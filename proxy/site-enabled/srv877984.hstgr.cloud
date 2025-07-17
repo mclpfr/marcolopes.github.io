@@ -76,41 +76,19 @@ server {
         proxy_redirect off;
     }
 
+    location /airflow/static/ {
+   	alias /var/lib/docker/volumes/mlops-road-accidents_airflow-static-volume/_data/;
+    	expires 30d;
+    	add_header Cache-Control "public, must-revalidate";
+   }	
 
     location /airflow/ {
-        proxy_pass http://localhost:8080/home;
-
-    	proxy_set_header Host $host;
-   	proxy_set_header X-Real-IP $remote_addr;
+    	proxy_pass http://localhost:8080;
+    	proxy_set_header Host $http_host;
+    	proxy_set_header X-Real-IP $remote_addr;
     	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     	proxy_set_header X-Forwarded-Proto $scheme;
-    	proxy_set_header X-Forwarded-Host $host;
-
-    	proxy_http_version 1.1;
-    	proxy_buffering off;
-    	proxy_set_header Upgrade $http_upgrade;
-    	proxy_set_header Connection "upgrade";
-
-    	proxy_connect_timeout 90;
-    	proxy_send_timeout 90;
-    	proxy_read_timeout 90;
-
-    	client_max_body_size 100m;
-    	proxy_cache_bypass $http_upgrade;
-    }
-
-    location /airflow/static/ {
-        proxy_pass http://localhost:8080/static/;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-Forwarded-Host $host;
-        proxy_set_header X-Forwarded-Host $host;
-        
-        expires 30d;
-        add_header Cache-Control "public, max-age=2592000";
-        access_log off;
+    	proxy_redirect ~^http://localhost:8080(.*)$ https://$http_host/airflow$1;
     }
 
     location /evidently/ {
