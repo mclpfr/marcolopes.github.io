@@ -1,9 +1,9 @@
 server {
     listen 443 ssl;
-    server_name srv877984.hstgr.cloud;
+    server_name vmi2734167.contaboserver.net;
 
-    ssl_certificate /etc/letsencrypt/live/srv877984.hstgr.cloud/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/srv877984.hstgr.cloud/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/vmi2734167.contaboserver.net/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/vmi2734167.contaboserver.net/privkey.pem;
 
     location / {
         proxy_pass http://localhost:8501;

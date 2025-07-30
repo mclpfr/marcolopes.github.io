@@ -5,7 +5,7 @@
 
 set -e
 
-DOMAIN="srv877984.hstgr.cloud"
+DOMAIN="vmi2734167.contaboserver.net"
 
 echo "🔧 Mise à jour du système"
 sudo apt update && sudo apt upgrade -y

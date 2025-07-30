@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NGINX_CONF="/etc/nginx/sites-available/srv877984.hstgr.cloud"
+NGINX_CONF="/etc/nginx/sites-available/vmi2734167.contaboserver.net"
 
 # Table associative : chemin => port
 declare -A services=(
