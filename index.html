@@ -370,7 +370,7 @@
         /* Tech Stack */
         .tech-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
@@ -391,7 +391,8 @@
         .tech-category h3 {
             color: #ff6b6b;
             margin-bottom: 1rem;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
+            line-height: 1.2;
         }
 
         .tech-list {
@@ -717,6 +718,81 @@
                 transform: translateY(0);
             }
         }
+        /* Container */
+        .about-section{
+            max-width:800px;
+            margin:0 auto 4rem;
+            padding:0 1.5rem;
+            text-align:center;
+        }
+        /* Title */
+        /* Title */
+        .about-title{
+            font-size:2rem;
+            margin-bottom:1.5rem;
+            /* Default (dark theme) color matching section titles */
+            color:#4ecdc4;
+            position:relative;
+            display:inline-block;
+        }
+        /* Light theme override for title */
+        body.light-theme .about-title{
+            color:var(--accent-color,#2b6cb0);
+        }
+        /* Light theme override for the underline bar */
+        body.light-theme .about-title::after{
+            background:linear-gradient(45deg,#2b6cb0,#4a90e2);
+        }
+        .about-title::after{
+            content:"";
+            position:absolute;
+            left:50%;
+            bottom:-6px;
+            transform:translateX(-50%);
+            width:100px;
+            height:4px;
+            background:linear-gradient(45deg,#ff6b6b,#4ecdc4);
+            border-radius:2px;
+        }
+        /* Paragraphs */
+        .about-section p{
+            /* Default (dark theme) text color */
+            color:#ffffff;
+            font-size:1.05rem;
+            line-height:1.6;
+            margin:0 0 1.2rem;
+        }
+        /* Light theme override for paragraphs */
+        body.light-theme .about-section p{
+            color:#374151;
+        }
+        /* Mise en avant DataScientest */
+        .about-section .school{
+            color:#14B8A6;
+            font-weight:600;
+        }
+        /* Uniform color for emphasized text */
+        .about-section strong{
+            color:var(--accent-color,#2b6cb0);
+        }
+        /* Link styling */
+        .school-link{
+            text-decoration:none;
+        }
+        /* Fade-in */
+        .fade-in-on-load{
+            opacity:0;
+            transform:translateY(20px);
+            animation:fadeInUp 0.8s ease-out 0.3s forwards;
+        }
+        @keyframes fadeInUp{
+            to{opacity:1;transform:translateY(0);}
+        }
+        /* Responsive */
+        @media(max-width:480px){
+            .about-title{font-size:1.6rem;}
+            .about-section p{font-size:1rem;}
+        }
     </style>
 </head>
 <body>
@@ -749,12 +825,13 @@
         <h2 class="about-title">À&nbsp;propos</h2>
 
         <p>
-            Ingénieur <strong>DevOps</strong> depuis plusieurs années, j’évolue aujourd’hui vers le
+            Ingénieur <strong>DevOps</strong> depuis plusieurs années, j'évolue aujourd'hui vers le
             <strong>MLOps</strong> pour industrialiser des modèles de machine learning.
         </p>
         <p>
             Je mets à profit mon expertise en <strong>automatisation</strong>, <strong>déploiement</strong> et
-            <strong>monitoring</strong> afin de livrer des solutions fiables et scalables.
+            <strong>monitoring</strong> afin de livrer des solutions fiables et scalables, en explorant 
+            également des solutions no-code comme <strong>n8n</strong> pour optimiser les workflows opérationnels.
         </p>
         <p>
             Formé au cycle complet du ML chez
@@ -763,85 +840,6 @@
             et détection de dérive.
         </p>
     </section>
-
-    <!-- Styles spécifiques à la section À propos -->
-    <style>
-    /* Container */
-    .about-section{
-        max-width:800px;
-        margin:0 auto 4rem;
-        padding:0 1.5rem;
-        text-align:center;
-    }
-    /* Title */
-    /* Title */
-    .about-title{
-        font-size:2rem;
-        margin-bottom:1.5rem;
-        /* Default (dark theme) color matching section titles */
-        color:#4ecdc4;
-        position:relative;
-        display:inline-block;
-    }
-    /* Light theme override for title */
-    body.light-theme .about-title{
-        color:var(--accent-color,#2b6cb0);
-    }
-    /* Light theme override for the underline bar */
-    body.light-theme .about-title::after{
-        background:linear-gradient(45deg,#2b6cb0,#4a90e2);
-    }
-    .about-title::after{
-        content:"";
-        position:absolute;
-        left:50%;
-        bottom:-6px;
-        transform:translateX(-50%);
-        width:100px;
-        height:4px;
-        background:linear-gradient(45deg,#ff6b6b,#4ecdc4);
-        border-radius:2px;
-    }
-    /* Paragraphs */
-    .about-section p{
-        /* Default (dark theme) text color */
-        color:#ffffff;
-        font-size:1.05rem;
-        line-height:1.6;
-        margin:0 0 1.2rem;
-    }
-    /* Light theme override for paragraphs */
-    body.light-theme .about-section p{
-        color:#374151;
-    }
-    /* Mise en avant DataScientest */
-    .about-section .school{
-        color:#14B8A6;
-        font-weight:600;
-    }
-    /* Uniform color for emphasized text */
-    .about-section strong{
-        color:var(--accent-color,#2b6cb0);
-    }
-    /* Link styling */
-    .school-link{
-        text-decoration:none;
-    }
-    /* Fade-in */
-    .fade-in-on-load{
-        opacity:0;
-        transform:translateY(20px);
-        animation:fadeInUp 0.8s ease-out 0.3s forwards;
-    }
-    @keyframes fadeInUp{
-        to{opacity:1;transform:translateY(0);}
-    }
-    /* Responsive */
-    @media(max-width:480px){
-        .about-title{font-size:1.6rem;}
-        .about-section p{font-size:1rem;}
-    }
-    </style>
 
     <section id="experience" class="fade-in">
         <div class="container">
@@ -1004,11 +1002,12 @@
                 
                 <!-- Placeholder pour futurs projets IA -->
                 <div class="project-card" style="border: 2px dashed rgba(78, 205, 196, 0.3); background: rgba(78, 205, 196, 0.05);">
-                    <div class="project-title" style="color: #4ecdc4;">Prochains Projets IA</div>
+                    <div class="project-title" style="color: #4ecdc4;">Projets Personnels en Développement</div>
                     <p class="blurred-projects">
                         • Application RAG avec recherche sémantique<br>
                         • Agent IA conversationnel pour réservation hôtel<br>
-                        • Pipeline d'intégration LLM en production
+                        • Pipeline d'intégration LLM en production<br>
+                        • Workflow automatisation notes de frais (n8n self-hosted + OCR + Google Sheets)
                     </p>
                     <div class="project-tags">
                         <span class="tag" style="background: rgba(78, 205, 196, 0.1); border-color: rgba(78, 205, 196, 0.2);">En développement</span>
@@ -1134,7 +1133,7 @@
                     <ul class="tech-list">
                         <li>Terraform</li>
                         <li>Ansible</li>
-                        <li>N8n</li>
+                        <li>n8n <span style="font-size: 0.8em; color: #4ecdc4;">(self-hosted déployé)</span></li>
                     </ul>
                 </div>
                 <div class="tech-category">
