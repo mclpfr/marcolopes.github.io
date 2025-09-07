@@ -483,6 +483,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
+            align-items: stretch; /* Ensure items in the same row have equal height */
         }
 
         .project-card {
@@ -493,6 +494,8 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            display: flex; /* Make the card a flex container */
+            flex-direction: column; /* Stack content vertically */
         }
 
         .project-card::before {
@@ -524,7 +527,8 @@
         }
 
         .project-buttons {
-            margin-top: 1.5rem;
+            margin-top: auto; /* Push the buttons to the bottom of the card */
+            padding-top: 1rem; /* Keep some spacing from the content above */
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
