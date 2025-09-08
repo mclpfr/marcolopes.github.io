@@ -1,0 +1,140 @@
+/* Timeline Progressive Animation Styles
+   Palette: 
+   - Red (titles): #ff6b6b
+   - Turquoise (accents): #4ecdc4
+   - Blue (gradients): #45b7d1
+   - Gray (secondary text): #b0b0b0
+*/
+
+#experience .timeline {
+  position: relative;
+  padding-left: 3.5rem; /* space for line + dots */
+}
+
+#experience .timeline-line {
+  position: absolute;
+  left: 1.5rem; /* aligns with dots center */
+  top: 0;
+  height: 0; /* animated to 100% */
+  width: 4px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #45b7d1 0%, #4ecdc4 50%, #ff6b6b 100%);
+  box-shadow: 0 0 12px rgba(69, 183, 209, 0.35);
+}
+
+/* Animate timeline vertical line once the timeline enters viewport */
+#experience .timeline.animate .timeline-line {
+  animation: growLine var(--timeline-duration, 3000ms) ease-out forwards;
+}
+
+@keyframes growLine {
+  from { height: 0; }
+  to { height: 100%; }
+}
+
+/* Timeline items */
+#experience .timeline-item {
+  position: relative;
+  margin-bottom: 3rem; /* requested spacing */
+  will-change: transform, opacity;
+}
+
+/* Dots */
+#experience .timeline-dot {
+  position: absolute;
+  left: 1.5rem;
+  top: 1.8rem; /* roughly aligns with the card heading */
+  transform: translate(-50%, -50%) scale(0);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #45b7d1 0%, #4ecdc4 100%);
+  box-shadow: 0 0 0 0 rgba(78, 205, 196, 0.6), 0 0 10px rgba(78, 205, 196, 0.6);
+  z-index: 2;
+}
+
+#experience .timeline-item.animate .timeline-dot {
+  animation: dotBounce 600ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes dotBounce {
+  0% { transform: translate(-50%, -50%) scale(0); }
+  60% { transform: translate(-50%, -50%) scale(1.15); }
+  80% { transform: translate(-50%, -50%) scale(0.95); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Card content with glassmorphism */
+#experience .timeline-content {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 4px solid #4ecdc4;
+  border-radius: 15px;
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  transition: transform 300ms ease, box-shadow 300ms ease, background 300ms ease;
+  will-change: transform, background;
+  opacity: 0;
+  transform: translateX(100px) scale(0.8);
+  filter: blur(5px);
+}
+
+#experience .timeline-item.animate .timeline-content {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  filter: blur(0);
+  transition: transform var(--item-duration, 600ms) cubic-bezier(0.4, 0, 0.2, 1),
+              opacity var(--item-duration, 600ms) cubic-bezier(0.4, 0, 0.2, 1),
+              filter var(--item-duration, 600ms) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover effect */
+#experience .timeline-content:hover {
+  transform: translateX(15px) scale(1.02);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px rgba(78, 205, 196, 0.25);
+}
+
+/* Typography inside cards - adhere to existing palette/classes */
+#experience .timeline-content .job-title { color: #ff6b6b; font-size: 1.4rem; font-weight: 700; }
+#experience .timeline-content .company { color: #4ecdc4; font-size: 1.1rem; margin: 0.35rem 0; }
+#experience .timeline-content .period { color: #b0b0b0; font-style: italic; margin-bottom: 0.8rem; }
+#experience .timeline-content p { color: #b0b0b0; line-height: 1.7; }
+
+/* Tags staggered within items (scoped to timeline so we don't affect other tags) */
+#experience .timeline-content .project-tags .tag {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+#experience .timeline-item.animate .project-tags .tag {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Highlighted special item */
+#experience .timeline-item.highlight .timeline-content {
+  border-left-color: #45b7d1;
+  box-shadow: 0 0 0 2px rgba(69, 183, 209, 0.25), 0 0 30px rgba(69, 183, 209, 0.25);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  #experience .timeline { padding-left: 2.5rem; }
+  #experience .timeline-line { left: 1rem; }
+  #experience .timeline-dot { width: 12px; height: 12px; left: 1rem; }
+  #experience .timeline-item { margin-bottom: 2rem; }
+}
+
+/* Light theme adjustments (respect existing light theme) */
+body.light-theme #experience .timeline-content {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+body.light-theme #experience .timeline-content:hover {
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(43, 108, 176, 0.15);
+}
