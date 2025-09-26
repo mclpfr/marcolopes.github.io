@@ -302,6 +302,12 @@
             border: 2px solid transparent;
         }
 
+        .btn-disabled {
+            pointer-events: none;
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
         .btn-primary {
             background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
             color: white;
@@ -1038,7 +1044,7 @@
                     </div>
                     
                     <div class="project-buttons">
-                        <a href="https://n8n.marcolopes.fr/ndf" target="_blank" class="btn-primary" rel="noopener noreferrer">Demo</a>
+                        <span class="btn-primary btn-disabled" aria-disabled="true" title="Demo indisponible temporairement">Demo</span>
                     </div>
                 </div>
                 
